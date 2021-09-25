@@ -1,0 +1,30 @@
+li{
+    list-style: none;
+    display: inline;
+    margin: 0 15px;
+    cursor: pointer;
+}
+.input{
+    margin-left: -21px ;
+}
+.icon-size{
+    font-size: 30px;
+}
+.enviar{
+    font-size: 14px;
+    margin-top: -35px;
+    margin-left: 30px;
+}
+.ciudad{
+    margin-top: -20px;
+    margin-left: 29px;
+}
+.li{
+    margin-left: 118px;
+}
+.cliente{
+    margin-left: 15px;
+}
+.box{
+    margin-left: 30px;
+}

@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div *ngFor="let producto of arrProductos" >
+            <app-card [producto] = producto></app-card>
+        </div>
+    </div>
+</div>
