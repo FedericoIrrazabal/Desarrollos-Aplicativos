@@ -2,12 +2,21 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+
+
+
 //Componentes
 import { TiendaComponent } from './tienda/tienda.component';
 import { SacarTurnoComponent } from './sacar-turno/sacar-turno.component';
 import { ContactoComponent } from './contacto/contacto.component';
-import { AyudaComponent } from './ayuda/ayuda.component';
 import { CardComponent } from './tienda/card/card.component';
+import { CrudComponent } from './crud/crud.component';
+import { VerProductoComponent } from './ver-producto/ver-producto.component';
+import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { ListadoComponent } from './listado/listado.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,19 +25,30 @@ import { CardComponent } from './tienda/card/card.component';
         TiendaComponent,
         SacarTurnoComponent,
         ContactoComponent,
-        AyudaComponent,
-        CardComponent
+        AcercaDeComponent,
+        CardComponent,
+        CrudComponent,
+        VerProductoComponent,
+        AcercaDeComponent,
+        ListadoComponent,
+        
     ],
     exports:[
         TiendaComponent,
         SacarTurnoComponent,
         ContactoComponent,
-        AyudaComponent,
-        CardComponent
+        AcercaDeComponent,
+        CardComponent,
+        CrudComponent,
+        VerProductoComponent,
+  
 
     ],
     imports:[
-        CommonModule
+        CommonModule,
+        SharedModule,
+        RouterModule,
+        FormsModule
     ]
 
 })

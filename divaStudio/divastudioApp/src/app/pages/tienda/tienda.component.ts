@@ -22,7 +22,7 @@ export class TiendaComponent implements OnInit {
   obtenerDatos(){
     this.__productService.mostrarProductos().subscribe(resp =>{
       this.arrProductos = resp;
-      console.log(resp);
+      // console.log(resp);
     })       
   }
 

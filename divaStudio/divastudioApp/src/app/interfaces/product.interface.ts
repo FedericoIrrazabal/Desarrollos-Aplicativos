@@ -3,5 +3,6 @@ export interface Product {
     avatar:             string;
     price:              string;
     productDescription: string;
-    id:                 string;
+    id?:                 string;
 }
+

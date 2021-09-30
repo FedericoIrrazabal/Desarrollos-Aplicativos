@@ -1,0 +1,78 @@
+<div>
+    <app-navbar></app-navbar>
+</div>
+<div  *ngIf="!producto; else divProducto">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+<ng-template #divProducto>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="d-flex justify-content-center" >
+                    <img class="img" [src]="producto.avatar" [alt]="producto.name">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="mb-3">
+                    <h1>{{producto.name}}</h1>
+                </div>
+                <div class="mb-3">
+                    <h3>{{producto.price |currency}}</h3>
+                </div>
+                <div class="mb-3">
+                    <h3>Descripcion</h3>
+                    <p>{{producto.productDescription}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6 offset-lg-3">
+                
+                <div class="mb-3">
+                    <h3>Comentarios</h3>
+                    <div *ngFor="let comment of comments">
+                    <h5>{{comment.name}}</h5>
+                    <hr>
+                    <p>{{comment.comment}}</p>
+                    <hr>
+                    <p>Puntuacion {{comment.punctuation}}/5</p>
+                    </div>
+                    
+                </div>
+                <div class="mb-3">
+                    <h4>Agregar comentario</h4>
+                    <form autocomplete="off">
+                        <div class="form-group">
+                            <div class="mb-1">
+                                <label class="col-form-label col-form-label-sm" for="nombre">Nombre</label>
+                                <input [(ngModel)]="comment.name" class="form-control form-control-sm" type="text" placeholder="Ingresa tu nombre..." id="nombre" name="nombre">
+                            </div>
+                            <div class="mb-1">
+                                <label class="col-form-label col-form-label-sm" for="comentario">Comentario</label>
+                                <input [(ngModel)]="comment.comment" class="form-control form-control-sm" type="text" placeholder="Ingresa tu comentario..." id="comentario" name="comentario">
+                            </div>
+                            <div class="mb-1">
+                                <label for="puntos" class="form-label col-form-label-sm">Puntuacion</label>
+                                <select [(ngModel)]="comment.punctuation" class="form-select form-select-sm" id="puntos" name="puntos">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button (click)="guardarComentario()" type="button" class="btn btn-primary btn-sm">Listo!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
