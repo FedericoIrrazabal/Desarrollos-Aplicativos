@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { Product } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -17,14 +18,7 @@ export class ListadoComponent implements OnInit {
   constructor(private __busqueda:ProductService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.termino = this._route.snapshot.paramMap.get('termino');
-
-    this.buscarProductos();
-
-  }
-
-  buscarProductos(){
-    this.__busqueda.buscarProductos(this.termino!).subscribe(productos => {
+    this._route.params.pipe(switchMap( ({termino}) => this.__busqueda.buscarProductos(termino))).subscribe(productos =>{
       this.productos = productos;
     });
   }

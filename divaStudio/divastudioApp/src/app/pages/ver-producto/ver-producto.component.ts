@@ -31,12 +31,7 @@ export class VerProductoComponent implements OnInit {
     this.verProducto.params.pipe(switchMap( ({id}) => this.__productService.verProducto(id))).subscribe(producto => {
       this.producto = producto;
       this.comment.idProducto = producto.id!;
-
-      this.__commentService.mostrarComentarios(this.comment.idProducto).subscribe(comments => {
-      this.comments = comments;
-      console.log(this.comments)
-  
-      });
+      this.mostrarComentarios();
     })
   }
 
@@ -52,10 +47,10 @@ export class VerProductoComponent implements OnInit {
     if(this.comment.name.trim().length === 0){
       return;
     }
-    this.__commentService.agregarComentario(this.comment).subscribe(resp => console.log(resp));
-
+    this.__commentService.agregarComentario(this.comment).subscribe(() => {
+      this.mostrarComentarios();
+    });
     this.limpiarInputs();
-    this.mostrarComentarios();
     }
 
   limpiarInputs(){
@@ -63,6 +58,7 @@ export class VerProductoComponent implements OnInit {
     this.comment.comment = '';
     this.comment.punctuation = '';
   }
-    
-  }
+
+  
+}
 

@@ -2,10 +2,19 @@
     <app-navbar></app-navbar>
 </div>
 <br>
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div *ngFor="let producto of productos" >
-            <app-card [producto] = producto></app-card>
+<div  *ngIf="productos.length === 0; else divProducto">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>
+<ng-template #divProducto>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div *ngFor="let producto of productos" >
+                <app-card [producto] = producto></app-card>
+            </div>
+        </div>
+    </div>
+</ng-template>
