@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row mx-4">
       <div class="col-lg-4 mt-1">
-        <img src="./assets/logo.png" height= 30 widht= 30 alt="logo">
-        <span class="navbar-brand ms-2">Diva Studio</span>
+        <img src="./assets/logo.png" height= 30 widht= 30 alt="logo" routerLink = "" class="cursor">
+        <span class="navbar-brand ms-2 cursor" routerLink = "">Diva Studio</span>
       </div>
       <div class="col-lg-4 mt-2 input">
         <form (ngSubmit)="buscar()" autocomplete="off">
@@ -13,7 +13,8 @@
       <div class="col-lg-4 mt-2 text-center cliente">
         <img src="./assets/perfil.jpeg" height="25" width="25" alt="img-cliente" class="rounded-circle me-2">
         <span>Federico Irrazabal</span>
-        <i class="fas fa-cog ms-2" routerLink="/crud"></i>
+        <i class="fas fa-cog ms-2 cursor" routerLink="/crud"></i>
+        <i class="fas fa-info mx-1 cursor" routerLink="/acerca"></i>
       </div>
     </div>
     <div class="row mx-4 mt-1 ">
@@ -24,17 +25,14 @@
       </div>
       <div class="col-lg-5 mt-1 li">
         <ul>
-          <li routerLink="" >
+          <li routerLink="" routerLinkActive="borde" [routerLinkActiveOptions] = "{exact:true}" >
             Tienda
           </li>
-          <li routerLink="/turno" >
+          <li routerLink="/turno" routerLinkActive="borde" >
             Sacar Turno
           </li>
-          <li routerLink="/contacto" >
+          <li routerLink="/contacto" routerLinkActive="borde">
             Contacto
-          </li>
-          <li routerLink="/acerca">
-            Acerca de
           </li>
         </ul>
       </div>

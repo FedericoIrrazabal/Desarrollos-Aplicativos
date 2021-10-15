@@ -27,10 +27,6 @@ const routes: Routes = [
         component:AcercaDeComponent
     },
     {
-        path:'ver',
-        component:VerProductoComponent
-    },
-    {
         path:'listado/:termino',
         component:ListadoComponent
     },

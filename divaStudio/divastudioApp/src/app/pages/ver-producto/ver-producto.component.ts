@@ -33,6 +33,7 @@ export class VerProductoComponent implements OnInit {
       this.comment.idProducto = producto.id!;
       this.mostrarComentarios();
     })
+
   }
 
   mostrarComentarios(){
@@ -59,6 +60,5 @@ export class VerProductoComponent implements OnInit {
     this.comment.punctuation = '';
   }
 
-  
 }
 

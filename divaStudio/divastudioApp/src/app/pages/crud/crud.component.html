@@ -4,11 +4,11 @@
 <br>
 <div>
   <ng-template #contenido let-modal>
-    <div class="modal-header">
+    <div class="modal-header bg-dark">
         <h4 class="modal-title text-center">Insertar Producto </h4>
         <button class="close badge bg-primary" aria-label="close" type="button" (click) = "modal.dismiss()"> <span aria-hiden="true">&times;</span> </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body bg-dark">
         <form  autocomplete="off">
             <div class="form-group">
                 <div class="mb-1">
@@ -31,9 +31,9 @@
             </div>
         </form>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer bg-dark">
         <button type="button" class="btn btn-success" (click)="guardar()" (click)="modal.close()">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar </button>
+        <button type="button" class="btn btn-danger" (click)="modal.close()" (click) = "cerrar()">Cerrar </button>
     </div>
 </ng-template>
 <div class="container mb-1">
@@ -53,15 +53,15 @@
             <th scope="col">Avatar</th>
             <th scope="col">Precio</th>
             <th scope="col">Descripcion</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>
+            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let producto of productos" class="text-center">
+          <tr *ngFor="let producto of productos" class="text-center table-primary">
             <td>{{producto.name}}</td>
             <td><img [src]="producto.avatar" [alt]="producto.name" class="rounded-circle" width="50px" height="50px"></td>
-            <td>{{producto.price}}</td>
+            <td>${{producto.price}}</td>
             <td>{{producto.productDescription}}</td>
             <td><button type="button" class="btn btn-warning btn-sm" (click)="mandarId(producto.id!)" (click)="openModal(contenido)">Editar</button></td>
             <td><button type="button" class="btn btn-primary btn-sm eliminar" (click)="eliminar(producto.id!)">Eliminar</button></td>

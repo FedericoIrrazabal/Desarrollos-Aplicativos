@@ -72,6 +72,9 @@ export class CrudComponent implements OnInit {
       }
     })
   }
+  cerrar(){
+    this.limpiarInputs();
+  }
   limpiarInputs(){
     this.producto.name = '';
     this.producto.avatar = '';

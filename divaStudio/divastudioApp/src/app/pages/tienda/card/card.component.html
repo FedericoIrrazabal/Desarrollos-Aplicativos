@@ -1,13 +1,16 @@
 
-<div class="card border-light" style="max-width: 15rem;" [routerLink] = "['/producto', producto?.id]">
-    <div class="card-header">
-        <h4 class="card-title text-center title">{{producto?.name}}</h4>
+<div class="card bg-light cardhover" style="max-width: 15rem;" [routerLink] = "['/producto', producto?.id]">
+    <div class="card-header border-primary headers">
+        <h4 *ngIf="producto!.name.length > 20;else titulo" class="card-title text-center titlelargo">{{producto?.name}}</h4>
+        <ng-template #titulo>
+            <h4 class="card-title text-center title">{{producto?.name}}</h4>
+        </ng-template>
     </div>
-    <div class="card-body imgbody">
+    <div class="card-body imgtam ">
         <img class = "img" src="{{producto?.avatar}}" alt="{{producto?.name}}">
     </div>
-    <div class="card-footer">
-        <p>{{producto?.price|currency}}</p>
-        <!-- <p *ngIf=" producto != undefined && producto.price > '800'">12 coutas sin interes de $417 </p> -->
+    <div class="card-footer footer border-primary headers" >
+        <h5>{{producto?.price|currency}}</h5>
+
     </div>
 </div>
