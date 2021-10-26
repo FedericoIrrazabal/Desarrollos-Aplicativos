@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap} from "rxjs/operators";
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/product.interface';
-import { Comment } from 'src/app/interfaces/comment.interface';
+import { Comment } from 'src/app/tienda/interfaces/comment.interface';
 import { CommentService } from '../../services/comment.service';
 
 @Component({

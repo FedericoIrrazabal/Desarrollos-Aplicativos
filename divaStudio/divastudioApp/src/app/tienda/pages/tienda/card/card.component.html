@@ -1,5 +1,5 @@
 
-<div class="card bg-light cardhover" style="max-width: 15rem;" [routerLink] = "['/producto', producto?.id]">
+<div class="card bg-light cardhover" style="max-width: 15rem;" [routerLink] = "['/tienda/producto', producto?.id]">
     <div class="card-header border-primary headers">
         <h4 *ngIf="producto!.name.length > 20;else titulo" class="card-title text-center titlelargo">{{producto?.name}}</h4>
         <ng-template #titulo>

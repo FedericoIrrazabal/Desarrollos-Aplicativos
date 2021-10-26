@@ -11,34 +11,34 @@
         </form>
       </div>
       <div class="col-lg-4 mt-2 text-center cliente">
-        <img src="./assets/perfil.jpeg" height="25" width="25" alt="img-cliente" class="rounded-circle me-2">
-        <span>Federico Irrazabal</span>
-        <i class="fas fa-cog ms-2 cursor" routerLink="/crud"></i>
-        <i class="fas fa-info mx-1 cursor" routerLink="/acerca"></i>
+        <img src="{{usuario.avatar}}" height="25" width="25" alt="img-cliente" class="rounded-circle me-2">
+        <span>{{usuario.name}}</span>
+        <i class="fas fa-cog ms-2 cursor" routerLink="/tienda/crud"></i>
+        <i class="fas fa-info mx-1 cursor" routerLink="/tienda/acerca"></i>
       </div>
     </div>
     <div class="row mx-4 mt-1 ">
       <div class="col-lg-2 box">
         <i class="fas fa-map-marker-alt icon-size"></i>
           <p class="enviar">Enviar a</p>
-          <p class="ciudad">San Juan 5411</p>
+          <p class="ciudad">{{usuario.city}} {{usuario.zipcode}}</p>
       </div>
       <div class="col-lg-5 mt-1 li">
         <ul>
-          <li routerLink="" routerLinkActive="borde" [routerLinkActiveOptions] = "{exact:true}" >
+          <li routerLink="/tienda/tienda" routerLinkActive="borde" [routerLinkActiveOptions] = "{exact:true}" >
             Tienda
           </li>
-          <li routerLink="/turno" routerLinkActive="borde" >
+          <li routerLink="/tienda/turno" routerLinkActive="borde" >
             Sacar Turno
           </li>
-          <li routerLink="/contacto" routerLinkActive="borde">
+          <li routerLink="/tienda/contacto" routerLinkActive="borde">
             Contacto
           </li>
         </ul>
       </div>
       <div class="col-lg-3 mt-1 text-center">
-       <span>Mis compras</span>
-       <i class="fas fa-bell ms-2"></i>
+       <span>Cerrar sesion</span>
+       <i class="fas fa-power-off ms-2" (click)=cerrarSesion()></i>
       </div>
     </div>
   </div>

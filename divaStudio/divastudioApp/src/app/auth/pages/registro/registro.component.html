@@ -1,0 +1,49 @@
+
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body px-5 text-center">
+            <div class="md-5 pb-4">
+              <h2 class="fw-bold text-uppercase">Registrarse</h2>
+              <p class="text-white-50 mb-3">Por favor, introduce tu datos!</p>
+              <form [formGroup]="usuario" autocomplete="off">
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="name">Nombre</label>
+                    <input formControlName="name" type="text" id="name" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="usuario.controls.name.errors && usuario.controls.name.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="typeEmailX">Email</label>
+                    <input formControlName="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
+                    <span class="form-text text-danger" *ngIf="usuario.controls.email.errors && usuario.controls.email.touched">Por favor ingresa Email es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="typePasswordX">Contraseña</label>
+                    <input formControlName="password" type="password" id="typePasswordX" class="form-control form-control-lg" />
+                    <span class="form-text text-danger" *ngIf="usuario.controls.password.errors && usuario.controls.password.touched">Deben ser minimo 8 caracteres</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="avatar">Avatar</label>
+                    <input formControlName="avatar" type="text" id="avatar" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="usuario.controls.avatar.errors && usuario.controls.avatar.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="ciudad">Ciudad</label>
+                    <input formControlName="city" type="text" id="ciudad" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="usuario.controls.city.errors && usuario.controls.city.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="codigo">Codigo Postal</label>
+                    <input formControlName="zipcode" id="codigo" type="text" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="usuario.controls.zipcode.errors && usuario.controls.zipcode.touched">Deben ser 4 caracteres</span>
+                    
+                  </div>
+                  <button [disabled]="usuario.invalid" class="btn btn-outline-light btn-lg px-5" type="submit" (click)="agregarRegistro()">Registrarme</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

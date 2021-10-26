@@ -1,0 +1,31 @@
+
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="md-5 pb-5">
+              <h2 class="fw-bold text-uppercase">Ingresar </h2>
+              <p class="text-white-50 mb-3">Por favor, introduce tu email y contraseña!</p>
+              <form [formGroup]="form" autocomplete="off">
+              <div class="form-outline form-white mb-2">
+                <label class="form-label" for="typeEmailX">Email</label>
+                <input formControlName="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <span class="form-text text-danger" *ngIf="form.controls.email.errors && form.controls.email.touched">Por favor ingresa email</span>
+              </div>
+              <div class="form-outline form-white mb-4">
+                <label class="form-label" for="typePasswordX">Contraseña</label>
+                <input formControlName="password" type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <span class="form-text text-danger" *ngIf="form.controls.password.errors && form.controls.password.touched">Por favor ingresa contraseña</span>
+              </div>
+              <button [disabled]="form.invalid" class="btn btn-outline-light btn-lg px-5" type="submit" (click) = "login()">Ingresar</button>
+            </form>
+            </div>
+            <div>
+              <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold" routerLink="/auth/registro">Registrarse</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

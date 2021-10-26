@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/interfaces/product.interface';
+import { Product } from 'src/app/tienda/interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
