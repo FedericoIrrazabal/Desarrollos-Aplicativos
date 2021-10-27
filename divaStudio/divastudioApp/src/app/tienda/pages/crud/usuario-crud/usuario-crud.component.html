@@ -1,0 +1,63 @@
+<br>
+<div>
+  <ng-template #contenido let-modal>
+    <div class="modal-header bg-dark">
+        <h4 class="modal-title text-center">Editar Usuario </h4>
+        <button class="close badge bg-primary" aria-label="close" type="button" (click) = "modal.dismiss()"> <span aria-hiden="true">&times;</span> </button>
+    </div>
+    <div class="modal-body bg-dark">
+        <form [formGroup]="form" autocomplete="off">
+            <div class="form-group">
+                <div class="mb-1">
+                    <label class="mb-1"for="name">Nombre</label>
+                    <input [(ngModel)]="usuario.name" formControlName="name" class="form-control form-control-sm" type="text" placeholder="Ingresa el nombre..." id="nombre" name="nombre">
+                    <span class="form-text text-danger" *ngIf="form.controls.name.errors && form.controls.name.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="imagen">Imagen</label>
+                    <input [(ngModel)]="usuario.avatar" formControlName="avatar" class="form-control form-control-sm" type="text" placeholder="Ingresa url de la imagen..." id="imagen" name="imagen">
+                    <span class="form-text text-danger" *ngIf="form.controls.avatar.errors && form.controls.avatar.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1" for="email">Email</label>
+                    <input  [(ngModel)]="usuario.email" formControlName="email" class="form-control form-control-sm" type="text" placeholder="Ingresa el email..." id="email" name="email">
+                    <span class="form-text text-danger" *ngIf="form.controls.email.errors && form.controls.email.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                  <input type="checkbox" formControlName="admin"> Es admin?
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer bg-dark">
+        <button  [disabled]="form.invalid" class="btn btn-success" (click)="guardar()" (click)="modal.close()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close()" (click) = "cerrar()">Cerrar </button>
+    </div>
+</ng-template>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr class = "table-warning text-center">
+            <th scope="col">Nombre</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Email</th>
+            <th scope="col">Admin</th>
+            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios" class="text-center table-primary">
+            <td>{{usuario.name}}</td>
+            <td><img [src]="usuario.avatar" [alt]="usuario.name" class="rounded-circle" width="50px" height="50px"></td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.admin}}</td>
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="mandarId(usuario.id!)" (click)="openModal(contenido)">Editar</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm eliminar" (click)="eliminar(usuario.id!)">Eliminar</button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

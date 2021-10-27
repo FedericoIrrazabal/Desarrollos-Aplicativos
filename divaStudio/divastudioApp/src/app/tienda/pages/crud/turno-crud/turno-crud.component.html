@@ -1,0 +1,64 @@
+<br>
+<div>
+  <ng-template #contenido let-modal>
+    <div class="modal-header bg-dark">
+        <h4 class="modal-title text-center">Editar Turno</h4>
+        <button class="close badge bg-primary" aria-label="close" type="button" (click) = "modal.dismiss()"> <span aria-hiden="true">&times;</span> </button>
+    </div>
+    <div class="modal-body bg-dark">
+        <form [formGroup]="form" autocomplete="off">
+            <div class="form-group">
+                <div class="mb-1">
+                    <label class="mb-1"for="name">Nombre</label>
+                    <input [(ngModel)]="turno.name" formControlName="name" class="form-control form-control-sm" type="text" placeholder="Ingresa el nombre..." id="nombre" name="nombre"> <span class="form-text text-danger" *ngIf="form.controls.name.errors && form.controls.name.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="fecha">Fecha</label>
+                    <input [(ngModel)]="turno.date" formControlName="date" class="form-control form-control-sm" type="text" placeholder="Ingresa la fecha..." id="fecha" name="fecha">
+                    <span class="form-text text-danger" *ngIf="form.controls.date.errors && form.controls.date.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="hora">Hora</label>
+                    <input  [(ngModel)]="turno.time" formControlName="time" class="form-control form-control-sm" type="text" placeholder="Ingresa el precio..." id="hora" name="hora">
+                    <span class="form-text text-danger" *ngIf="form.controls.time.errors && form.controls.time.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="trabajo">Trabajo a realizar</label>
+                    <textarea [(ngModel)]="turno.jobs" formControlName="jobs" class="form-control for-control-sm" id="descripcion" rows="3" placeholder="Ingresa el trabajo a realizar..." name="trabajo"></textarea>
+                    <span class="form-text text-danger" *ngIf="form.controls.jobs.errors && form.controls.jobs.touched">Este campo es obligatorio y el maximo de caracteres es 50</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer bg-dark">
+        <button [disabled]="form.invalid" type="button" class="btn btn-success" (click)="guardar()" (click)="modal.close()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close()" (click) = "cerrar()">Cerrar </button>
+    </div>
+</ng-template>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr class = "table-warning text-center">
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Trabajo a Realizar</th>
+            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let turno of turnos" class="text-center table-primary">
+            <td>{{turno.name}}</td>
+            <td>{{turno.date}}</td>
+            <td>{{turno.time}}</td>
+            <td>{{turno.jobs}}</td>
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="mandarId(turno.id!)" (click)="openModal(contenido)">Editar</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm eliminar" (click)="eliminar(turno.id!)">Eliminar</button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

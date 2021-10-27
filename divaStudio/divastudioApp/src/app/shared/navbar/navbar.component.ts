@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
 
   buscar(){
     this.router.navigate(["/tienda/listado/" + this.termino])
+    this.termino = "";
     }
 
   

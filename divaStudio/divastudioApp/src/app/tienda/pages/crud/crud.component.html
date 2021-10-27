@@ -1,72 +1,30 @@
-<div>
-    <app-navbar></app-navbar>
-</div>
 <br>
-<div>
-  <ng-template #contenido let-modal>
-    <div class="modal-header bg-dark">
-        <h4 class="modal-title text-center">Insertar Producto </h4>
-        <button class="close badge bg-primary" aria-label="close" type="button" (click) = "modal.dismiss()"> <span aria-hiden="true">&times;</span> </button>
-    </div>
-    <div class="modal-body bg-dark">
-        <form  autocomplete="off">
-            <div class="form-group">
-                <div class="mb-1">
-                    <label class="mb-1"for="name">Nombre</label>
-                    <input [(ngModel)]="producto.name" class="form-control form-control-sm" type="text" placeholder="Ingresa el nombre..." id="nombre" name="nombre" required
-                    >
-                </div>
-                <div class="mb-1">
-                    <label class="mb-1" for="imagen">Imagen</label>
-                    <input [(ngModel)]="producto.avatar" class="form-control form-control-sm" type="text" placeholder="Ingresa url de la imagen..." id="imagen" name="imagen" required>
-                </div>
-                <div class="mb-1">
-                    <label class="mb-1" for="precio">Precio</label>
-                    <input  [(ngModel)]="producto.price" class="form-control form-control-sm" type="text" placeholder="Ingresa el precio..." id="precio" name="precio" required>
-                </div>
-                <div class="mb-1">
-                    <label class="mb-1" for="descripcion">Descripcion</label>
-                    <textarea [(ngModel)]="producto.productDescription" class="form-control for-control-sm" id="descripcion" rows="3" placeholder="Ingresa la descripcion del producto..." name="descripcion" required></textarea>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer bg-dark">
-        <button type="button" class="btn btn-success" (click)="guardar()" (click)="modal.close()">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close()" (click) = "cerrar()">Cerrar </button>
-    </div>
-</ng-template>
-<div class="container mb-1">
-    <div class="row">
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-primary btn-sm" (click)="openModal(contenido)">Insertar Producto</button>
+<div class="row px-5 mt-5">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Administar Usuarios</h5>
+          <p class="card-text">Tener el control de los usuarios y los permisos de los mismos</p>
+          <a routerLink="/tienda/usuarioscrud" href="#" class="btn btn-primary">Ir a usuarios</a>
         </div>
+      </div>
     </div>
-</div>
-</div>
-
-<div class="container">
-    <table class="table">
-        <thead>
-          <tr class = "table-warning text-center">
-            <th scope="col">Nombre</th>
-            <th scope="col">Avatar</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
-            <th scope="col"><i class="fas fa-trash-alt"></i></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let producto of productos" class="text-center table-primary">
-            <td>{{producto.name}}</td>
-            <td><img [src]="producto.avatar" [alt]="producto.name" class="rounded-circle" width="50px" height="50px"></td>
-            <td>${{producto.price}}</td>
-            <td>{{producto.productDescription}}</td>
-            <td><button type="button" class="btn btn-warning btn-sm" (click)="mandarId(producto.id!)" (click)="openModal(contenido)">Editar</button></td>
-            <td><button type="button" class="btn btn-primary btn-sm eliminar" (click)="eliminar(producto.id!)">Eliminar</button></td>
-          </tr>
-         
-        </tbody>
-      </table>
-</div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Administar Productos</h5>
+          <p class="card-text">Tener el control de los productos y los permisos de los mismos</p>
+          <a routerLink="/tienda/productoscrud" href="#" class="btn btn-primary">Ir a productos</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Administar Turnos</h5>
+            <p class="card-text">Tener el control de los turnos y los permisos de los mismos</p>
+            <a routerLink="/tienda/turnoscrud" href="#" class="btn btn-primary">Ir a Turnos</a>
+          </div>
+        </div>
+      </div>
+  </div>

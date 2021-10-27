@@ -1,0 +1,72 @@
+<br>
+<div>
+  <ng-template #contenido let-modal>
+    <div class="modal-header bg-dark">
+        <h4 class="modal-title text-center">Insertar Producto </h4>
+        <button class="close badge bg-primary" aria-label="close" type="button" (click) = "modal.dismiss()"> <span aria-hiden="true">&times;</span> </button>
+    </div>
+    <div class="modal-body bg-dark">
+        <form [formGroup]= "form" autocomplete="off">
+            <div class="form-group">
+                <div class="mb-1">
+                    <label class="mb-1"for="name">Nombre</label>
+                    <input [(ngModel)]="producto.name" formControlName="name" class="form-control form-control-sm" type="text" placeholder="Ingresa el nombre..." id="nombre" name="nombre" >
+                    <span class="form-text text-danger" *ngIf="form.controls.name.errors && form.controls.name.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="imagen">Imagen</label>
+                    <input [(ngModel)]="producto.avatar" formControlName="avatar" class="form-control form-control-sm" type="text" placeholder="Ingresa url de la imagen..." id="imagen" name="imagen">
+                    <span class="form-text text-danger" *ngIf="form.controls.avatar.errors && form.controls.avatar.touched">Este campo es obligatorio</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="precio">Precio</label>
+                    <input  [(ngModel)]="producto.price" formControlName="price" class="form-control form-control-sm" type="number" placeholder="Ingresa el precio..." id="precio" name="precio">
+                    <span class="form-text text-danger" *ngIf="form.controls.price.errors && form.controls.price.touched">Debe ser mayor que 0</span>
+                </div>
+                <div class="mb-1">
+                    <label class="mb-1" for="descripcion">Descripcion</label>
+                    <textarea [(ngModel)]="producto.productDescription" formControlName="productDescription" class="form-control for-control-sm" id="descripcion" rows="3" placeholder="Ingresa la descripcion del producto..." name="descripcion"></textarea>
+                    <span class="form-text text-danger" *ngIf="form.controls.productDescription.errors && form.controls.productDescription.touched">Este campo es obligatorio y el maximo de caracteres es 50</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer bg-dark">
+        <button [disabled] ="form.invalid" type="button" class="btn btn-success" (click)="guardar()" (click)="modal.close()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close()" (click) = "cerrar()">Cerrar </button>
+    </div>
+</ng-template>
+<div class="container mb-1">
+    <div class="row">
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-primary btn-sm" (click)="openModal(contenido)">Insertar Producto</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr class = "table-warning text-center">
+            <th scope="col">Nombre</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos" class="text-center table-primary">
+            <td>{{producto.name}}</td>
+            <td><img [src]="producto.avatar" [alt]="producto.name" class="rounded-circle" width="50px" height="50px"></td>
+            <td>${{producto.price}}</td>
+            <td>{{producto.productDescription}}</td>
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="mandarId(producto.id!)" (click)="openModal(contenido)">Editar</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm eliminar" (click)="eliminar(producto.id!)">Eliminar</button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

@@ -17,6 +17,10 @@ import { VerProductoComponent } from './pages/ver-producto/ver-producto.componen
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProductoCrudComponent } from './pages/crud/producto-crud/producto-crud.component';
+import { UsuarioCrudComponent } from './pages/crud/usuario-crud/usuario-crud.component';
+import { TurnoCrudComponent } from './pages/crud/turno-crud/turno-crud.component';
+
 
 
 
@@ -31,6 +35,9 @@ import { HomeComponent } from './pages/home/home.component';
         AcercaDeComponent,
         ListadoComponent,
         HomeComponent,
+        ProductoCrudComponent,
+        UsuarioCrudComponent,
+        TurnoCrudComponent,
     ],
     exports:[
         TiendaComponent,

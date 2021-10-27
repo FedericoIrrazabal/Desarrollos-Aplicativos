@@ -1,35 +1,44 @@
-<div>
-    <app-navbar></app-navbar>
-</div>
 <br>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-center ">Turno</h5>
-                    <form [formGroup]="turno"></form>
-                    <div class="form-group mb-3">
-                        <label for="nombre">Nombre</label>
-                        <input formControlName="name" type="text" id ="nombre" class="form-control" placeholder="Ingrese su nombre">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="fecha">Fecha</label>
-                        <input formControlName="date" type="date" id ="fecha" class="form-control">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="hora">Hora</label>
-                        <input formControlName="time" type="time" id ="hora" class="form-control">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="trabajo">Trabajo a realizar</label>
-                        <textarea formControlName="jobs" id ="trabajo" row="3" class="form-control" placeholder="Ingrese el trabajo que se desea realizar"></textarea>
-                    </div>
-                    <button [disabled]="turno.invalid" class="btn btn-light btn-block">Agregar Turno</button>
+<br>
 
-                </div>
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body px-5 text-center">
+            <div class="md-5 pb-4">
+              <h2 class="fw-bold text-uppercase">Sacar Turno</h2>
+              <p class="text-white-50 mb-3">Por favor, introduce tus datos!</p>
+              <form [formGroup]="form" autocomplete="off">
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="name">Nombre</label>
+                    <input [(ngModel)]="usuario.name" formControlName="name" type="text" id="name" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="form.controls.name.errors && form.controls.name.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="fecha">Fecha</label>
+                    <input formControlName="date" type="date" id="fecha" class="form-control form-control-lg" />
+                    <span class="form-text text-danger" *ngIf="form.controls.date.errors && form.controls.date.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-2">
+                    <label class="form-label" for="hora">Hora</label>
+                    <input formControlName="time" type="time" id="hora" class="form-control form-control-lg"/>
+                    <span class="form-text text-danger" *ngIf="form.controls.time.errors && form.controls.time.touched">Este campo es obligatorio</span>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <label for="trabajo">Trabajo a realizar</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected value="semipermanente">Semipermanente</option>
+                        <option value="esculpidas">Esculpidas</option>
+                        <option value="manicura rusa">Manicura rusa</option>
+                      </select>
+                  </div>
+                  <button [disabled]="form.invalid" class="btn btn-outline-light btn-lg px-5" type="submit" (click)="agregarTurno()">Guardar Turno</button>
+                </form>
             </div>
+          </div>
+         
         </div>
+      </div>
     </div>
-</div>
-<br>
+  </div>

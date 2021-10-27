@@ -11,6 +11,9 @@ import { AuthGuard } from '../shared/guards/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { AdminGuard } from '../shared/guards/admin.guard';
 import { CommonModule } from '@angular/common';
+import { UsuarioCrudComponent } from './pages/crud/usuario-crud/usuario-crud.component';
+import { ProductoCrudComponent } from './pages/crud/producto-crud/producto-crud.component';
+import { TurnoCrudComponent } from './pages/crud/turno-crud/turno-crud.component';
 
 const routes : Routes = [
   {
@@ -41,11 +44,26 @@ const routes : Routes = [
       {
         path:'crud',
         component:CrudComponent,
-        canActivate:[AdminGuard]
+        canActivate:[AuthGuard,AdminGuard]
       },
       {
         path:'producto/:id',
         component: VerProductoComponent
+      },
+      {
+        path:'usuarioscrud',
+        component:UsuarioCrudComponent,
+        canActivate:[AuthGuard,AdminGuard]
+      },
+      {
+        path:'productoscrud',
+        component:ProductoCrudComponent,
+        canActivate:[AuthGuard,AdminGuard]
+      },
+      {
+        path:'turnoscrud',
+        component:TurnoCrudComponent,
+        canActivate:[AuthGuard,AdminGuard]
       },
       {
         path:'**',

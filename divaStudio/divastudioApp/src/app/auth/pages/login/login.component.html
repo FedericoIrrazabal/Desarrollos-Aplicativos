@@ -15,7 +15,7 @@
               </div>
               <div class="form-outline form-white mb-4">
                 <label class="form-label" for="typePasswordX">Contraseña</label>
-                <input formControlName="password" type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input formControlName="password" type="password" id="typePasswordX" class="form-control form-control-lg"/>
                 <span class="form-text text-danger" *ngIf="form.controls.password.errors && form.controls.password.touched">Por favor ingresa contraseña</span>
               </div>
               <button [disabled]="form.invalid" class="btn btn-outline-light btn-lg px-5" type="submit" (click) = "login()">Ingresar</button>

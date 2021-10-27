@@ -21,4 +21,22 @@ export class AuthService {
   registroUsuario(usuario:Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(`${this.apiUrl}`, usuario);
   }
+
+  mostrarUsuarios():Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.apiUrl);
+  }
+
+  verUsuario(id:string):Observable <Usuario>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Usuario>(url);
+  }
+
+  eliminarUsuario(id:string|undefined): Observable<any>{
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
+
+  actualizarUsuario(usuario:Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.apiUrl}/${usuario.id}`, usuario);
+
+  }
 }
